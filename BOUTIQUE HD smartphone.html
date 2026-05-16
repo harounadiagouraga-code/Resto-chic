@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HD_phone.store</title>
+  <style>
+
+    /* =========================
+       STYLE GLOBAL
+    ========================== */
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: Arial, sans-serif;
+    }
+    body{
+      background:#0f172a;
+      color:white;
+      overflow-x:hidden;
+    }
+
+    a{
+      text-decoration:none;
+      color:white;
+    }
+
+    /* =========================
+       NAVBAR
+    ========================== */
+
+    nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:20px 8%;
+      background:rgba(0,0,0,0.3);
+      backdrop-filter:blur(10px);
+      position:fixed;
+      width:100%;
+      top:0;
+      z-index:1000;
+    }
+
+    .logo{
+      font-size:28px;
+      font-weight:bold;
+      color:#38bdf8;
+    }
+
+    nav ul{
+      display:flex;
+      list-style:none;
+      gap:30px;
+    }
+
+    nav ul li a{
+      transition:0.3s;
+    }
+
+    nav ul li a:hover{
+      color:#38bdf8;
+    }
+
+    /* =========================
+       HERO SECTION
+    ========================== */
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:120px 8%;
+      gap:50px;
+      flex-wrap:wrap;
+      background:linear-gradient(to right,#020617,#0f172a);
+    }
+
+    .hero-text{
+      flex:1;
+      min-width:300px;
+    }
+
+    .hero-text h1{
+      font-size:60px;
+      margin-bottom:20px;
+      line-height:1.1;
+    }
+
+    .hero-text span{
+      color:#38bdf8;
+    }
+
+    .hero-text p{
+      font-size:18px;
+      line-height:1.7;
+      color:#cbd5e1;
+      margin-bottom:30px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:15px 35px;
+      background:#38bdf8;
+      color:#000;
+      border-radius:40px;
+      font-weight:bold;
+      transition:0.3s;
+    }
+
+    .btn:hover{
+      transform:scale(1.05);
+      background:white;
+    }
+
+    .hero-image{
+      flex:1;
+      min-width:300px;
+      text-align:center;
+    }
+
+    .hero-image img{
+      width:350px;
+      filter:drop-shadow(0 0 30px rgba(56,189,248,0.5));
+    }
+
+    /* =========================
+       SECTION PRODUITS
+    ========================== */
+
+    .products{
+      padding:100px 8%;
+      background:#111827;
+    }
+
+    .section-title{
+      text-align:center;
+      font-size:40px;
+      margin-bottom:60px;
+    }
+
+    .section-title span{
+      color:#38bdf8;
+    }
+
+    .product-container{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:30px;
+    }
+
+    .card{
+      background:#1e293b;
+      border-radius:20px;
+      padding:20px;
+      text-align:center;
+      transition:0.4s;
+      border:1px solid transparent;
+    }
+
+    .card:hover{
+      transform:translateY(-10px);
+      border-color:#38bdf8;
+      box-shadow:0 0 20px rgba(56,189,248,0.3);
+    }
+
+    .card img{
+      width:100%;
+      height:250px;
+      object-fit:cover;
+      border-radius:15px;
+      margin-bottom:20px;
+    }
+
+    .card h3{
+      margin-bottom:10px;
+      font-size:24px;
+    }
+
+    .card p{
+      color:#cbd5e1;
+      margin-bottom:20px;
+      line-height:1.5;
+    }
+
+    .price{
+      color:#38bdf8;
+      font-size:22px;
+      font-weight:bold;
+      margin-bottom:20px;
+      display:block;
+    }
+
+    /* =========================
+       AVANTAGES
+    ========================== */
+
+    .features{
+      padding:100px 8%;
+      background:#0f172a;
+    }
+
+    .feature-box{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:30px;
+    }
+
+    .feature{
+      background:#1e293b;
+      padding:40px 25px;
+      border-radius:20px;
+      text-align:center;
+    }
+
+    .feature h3{
+      margin:20px 0;
+      color:#38bdf8;
+    }
+
+    /* =========================
+       FOOTER
+    ========================== */
+
+    footer{
+      background:#020617;
+      text-align:center;
+      padding:30px;
+      color:#94a3b8;
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================== */
+    @media(max-width:900px){
+      .hero{
+        text-align:center;
+      }
+
+      .hero-text h1{
+        font-size:45px;
+      }
+
+      nav ul{
+        gap:15px;
+      }
+    }
+
+    @media(max-width:600px){
+
+      nav{
+        flex-direction:column;
+        gap:15px;
+      }
+
+      .hero-text h1{
+        font-size:35px;
+      }
+
+      .hero-image img{
+        width:280px;
+      }
+
+      .section-title{
+        font-size:30px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- =========================
+       NAVBAR
+  ========================== -->
+
+  <nav>
+
+    <div class="logo">HD_phone.store</div>
+    <ul>
+      <li><a href="#">Accueil</a></li>
+      <li><a href="#">Téléphones</a></li>
+      <li><a href="#">Nouveautés</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- =========================
+       HERO SECTION
+  ========================== -->
+
+  <section class="hero">
+
+    <div class="hero-text">
+      <h1>
+        Découvrez les <span>Smartphones</span> du Futur
+      </h1>
+
+      <p>
+        HD_Phone Store vous propose des téléphones modernes,
+        puissants et élégants avec des performances exceptionnelles.
+      </p>
+      <a href="#" class="btn">Acheter Maintenant</a>
+    </div>
+    <div class="hero-image">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdPkKzLzQ30pVHPwLa9vTixba3u5BqSf2N0w&s" alt="Smartphone">
+    </div>
+  </section>
+
+  <!-- =========================
+       SECTION PRODUITS
+  ========================== -->
+  <section class="products">
+    <h2 class="section-title">
+      Nos <span>Téléphones</span>
+    </h2>
+    <div class="product-container">
+      <!-- Produit 1 -->
+      <div class="card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5t25LJSbyL34zFfvH9is1tdhBmRPDuAWA2Q&s" alt="Téléphone">
+        <h3>Xiaomi 17 pro</h3>
+        <p>
+          Le Xiaomi 17 Pro Max (2026) se distingue par un appareil photo Leica de pointe (trois capteurs 50 MP, zoom x5) et une mémoire généreuse, souvent configurée avec 16 Go de RAM et 512 Go ou 1 To de stockage
+        </p>
+  
+        <span class="price">575 000f</span>
+        <a href="#" class="btn">Commander</a>
+
+      </div>
+
+
+      <!-- Produit 2 -->
+
+      <div class="card">
+
+        <img src="https://images.unsplash.com/photo-1580910051074-3eb694886505?q=80&w=1200&auto=format&fit=crop" alt="Téléphone">
+
+        <h3>Galaxy Pro</h3>
+
+        <p>
+          Design premium avec batterie longue durée et processeur puissant.
+        </p>
+        <span class="price">150 000f</span>
+        <a href="#" class="btn">Commander</a>
+      </div>
+      <!-- Produit 3 -->
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1567581935884-3349723552ca?q=80&w=1200&auto=format&fit=crop" alt="Téléphone">
+        <h3>iTech Ultra</h3>
+        <p>
+          Téléphone haut de gamme avec intelligence artificielle avancée.
+        </p>
+        <span class="price">200 000f</span>
+        <a href="#" class="btn">Commander</a>
+      </div>
+      <!-- Produit 4 -->
+      <div class="card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfYSg1kabA7ULxTXJhZaYSyRUVm9hPAoFUFw&s" alt="Téléphone">
+        <h3>Pixel 10 pro</h3>
+        <p>
+          Caméra professionnelle et expérience utilisateur ultra fluide.
+        </p>
+
+        <span class="price">650 000f</span>
+        <a href="#" class="btn">Commander</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================
+       AVANTAGES
+  ========================== -->
+
+  <section class="features">
+
+    <h2 class="section-title">
+      Pourquoi Choisir <span>HD_Phone</span> ?
+    </h2>
+    <div class="feature-box">
+      <div class="feature">
+        <h3>⚡ Performance</h3>
+        <p>
+          Des smartphones rapides et optimisés pour tous vos besoins.
+        </p>
+      </div>
+
+      <div class="feature">
+        <h3>📸 Caméra HD</h3>
+        <p>
+          Capturez des photos professionnelles avec une qualité exceptionnelle.
+        </p>
+      </div>
+
+      <div class="feature">
+        <h3>🔋 Batterie Durable</h3>
+        <p>
+          Profitez d’une autonomie longue durée toute la journée.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
+  <footer>
+
+    <p>
+      © 2026 HD_Phone Store - Tous droits réservés
+    </p>
+
+  </footer>
+
+</body>
+</html>
